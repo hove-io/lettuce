@@ -82,7 +82,7 @@ note this uses [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/l
 
 ## windows support
 
-[erlis](https://github.com/erlis) have made a awesome job by making
+[erlis](https://github.com/erlis) have made an awesome job by making
 lettuce work on windows. He posted
 [here](http://www.erlisvidal.com/2010/10/how-install-lettuce-windows.html)
 how to install lettuce on windows.
