@@ -14,8 +14,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# py3:mod
-import six
+
 import datetime
 import sys
 # py3:mod
@@ -25,7 +24,6 @@ from lettuce.terrain import before, after
 
 from subunit.v2 import StreamResultToBytes
 from subunit.iso8601 import Utc
-
 
 def open_file(filename):
     """
