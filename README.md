@@ -1,4 +1,7 @@
 # lettuce
+
+This fork to support Python3
+
 > Version 0.2.23 - kryptonite
 
 [![Build Status](https://secure.travis-ci.org/gabrielfalcao/lettuce.png)](http://travis-ci.org/gabrielfalcao/lettuce)
