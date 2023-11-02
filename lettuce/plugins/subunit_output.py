@@ -23,7 +23,7 @@ from six.moves import StringIO
 from lettuce.terrain import before, after
 
 from subunit.v2 import StreamResultToBytes
-from subunit.iso8601 import Utc
+from iso8601 import UTC
 
 def open_file(filename):
     """
@@ -173,4 +173,4 @@ def now():
     A timestamp suitable for subunit
     """
 
-    return datetime.datetime.now(tz=Utc())
+    return datetime.datetime.now(tz=UTC)
