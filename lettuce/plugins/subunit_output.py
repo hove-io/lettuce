@@ -14,8 +14,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# py3:mod
-import six
+
 import datetime
 import sys
 # py3:mod
@@ -24,8 +23,7 @@ from six.moves import StringIO
 from lettuce.terrain import before, after
 
 from subunit.v2 import StreamResultToBytes
-from subunit.iso8601 import Utc
-
+from iso8601 import UTC
 
 def open_file(filename):
     """
@@ -175,4 +173,4 @@ def now():
     A timestamp suitable for subunit
     """
 
-    return datetime.datetime.now(tz=Utc())
+    return datetime.datetime.now(tz=UTC)

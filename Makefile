@@ -9,6 +9,7 @@ check_dependencies:
 	@echo "Checking for dependencies to run tests ..."
 	@for dependency in `echo $$LETTUCE_DEPENDENCIES`; do \
 		python -c "import $$dependency" 2>/dev/null || (echo "You must install $$dependency in order to run lettuce's tests" && exit 3) ; \
+		echo "$$dependency check OK"; \
 		done
 
 unit: clean
