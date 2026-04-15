@@ -1,10 +1,17 @@
-import asyncore
+try:
+    import asyncore
+    from smtpd import SMTPServer
+    SMTP_AVAILABLE = True
+except ImportError:
+    # asyncore and smtpd were removed in Python 3.12
+    asyncore = None
+    SMTPServer = None
+    SMTP_AVAILABLE = False
+
 import threading
 
 from email.header import decode_header
 from email import message_from_string
-
-from smtpd import SMTPServer
 
 
 from lettuce import after, before
@@ -54,6 +61,16 @@ def _convert_to_django_msg(msg):
 
 
 def enable():
+
+    if not SMTP_AVAILABLE:
+        import warnings
+        warnings.warn(
+            "SMTP mail queue plugin is not available because asyncore and smtpd "
+            "modules are not available (removed in Python 3.12+). "
+            "Consider using aiosmtpd as an alternative.",
+            RuntimeWarning
+        )
+        return
 
     from django.conf import settings
     from lettuce.django import mail

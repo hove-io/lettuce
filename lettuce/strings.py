@@ -39,7 +39,7 @@ def escape_if_necessary(what):
     if six.PY3:
         if isinstance(what, bytes):
             what = what.decode('utf-8')
-    if len(what) is 1:
+    if len(what) == 1:
         what = u"[%s]" % what
 
     return what

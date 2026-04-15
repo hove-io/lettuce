@@ -43,10 +43,10 @@ class REP(object):
     # py3: mod
     first_of = re.compile(six.u(r'^first_of_'))
     last_of = re.compile(six.u(r'^last_of_'))
-    language = re.compile(u"\s*#\s*language:[ ]*([^\s]+)")
+    language = re.compile(r"\s*#\s*language:[ ]*([^\s]+)")
     within_double_quotes = re.compile(r'("[^"]+")')
     within_single_quotes = re.compile(r"('[^']+')")
-    only_whitespace = re.compile('^\s*$')
+    only_whitespace = re.compile(r'^\s*$')
     last_tag_extraction_regex = re.compile(six.u(r'(?:\s|^)[@](\S+)\s*$'))
     first_tag_extraction_regex = re.compile(six.u(r'^\s*[@](\S+)(?:\s|$)'))
     tag_strip_regex = re.compile(six.u(r'(?:(?:^\s*|\s+)[@]\S+\s*)+$'), re.DOTALL)
@@ -284,7 +284,7 @@ class Step(object):
             if not isinstance(method_name, str):
                 method_name = method_name.encode('utf-8')
         method_name = '%s(step%s)' % (
-            "_".join(re.findall("\w+", method_name)).lower(),
+            "_".join(re.findall(r"\w+", method_name)).lower(),
             attribute_names and (", %s" % ", ".join(attribute_names)) or "")
 
         return method_name, sentence
@@ -1179,7 +1179,7 @@ class Feature(object):
             return joined, None
 
         parts = strings.split_wisely(
-            joined, "(%s):\s*" % self.language.background)
+            joined, r"(%s):\s*" % self.language.background)
 
         description = parts.pop(0)
 

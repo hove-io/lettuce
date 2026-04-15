@@ -131,13 +131,13 @@ class Runner(object):
 
         sys.path.remove(base_path)
 
-        if verbosity is 0:
+        if verbosity == 0:
             from lettuce.plugins import non_verbose as output
-        elif verbosity is 1:
+        elif verbosity == 1:
             from lettuce.plugins import dots as output
-        elif verbosity is 2:
+        elif verbosity == 2:
             from lettuce.plugins import scenario_names as output
-        elif verbosity is 3:
+        elif verbosity == 3:
             if no_color:
                 from lettuce.plugins import shell_output as output
             else:
@@ -223,7 +223,7 @@ class Runner(object):
             total.output_format()
             call_hook('after', 'all', total)
 
-            if failed:
-                raise LettuceRunnerError("Test failed.")
+        if failed:
+            raise LettuceRunnerError("Test failed.")
 
-            return total
+        return total
